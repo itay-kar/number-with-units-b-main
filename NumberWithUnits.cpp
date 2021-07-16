@@ -1,10 +1,9 @@
+#include "NumberWithUnits.hpp"
 #include <iostream>
 #include <istream>
 #include <unordered_map>
 
 using namespace std;
-
-#include "NumberWithUnits.hpp"
 
 namespace ariel
 {
@@ -200,4 +199,27 @@ namespace ariel
 
   bool NumberWithUnits::operator<(const NumberWithUnits &b) const { return b > *this; }
   bool NumberWithUnits::operator>=(const NumberWithUnits &b) const { return b < *this; }
+
+  NumberWithUnits NumberWithUnits::operator++(int)
+  {
+    NumberWithUnits temp = NumberWithUnits(this->_Num_size, this->_Num_unit);
+    this->_Num_size += 1;
+    return temp;
+  }
+  NumberWithUnits &NumberWithUnits::operator++()
+  {
+    this->_Num_size += 1;
+    return *this;
+  }
+  NumberWithUnits NumberWithUnits::operator--(int)
+  {
+    NumberWithUnits temp = NumberWithUnits(this->_Num_size, this->_Num_unit);
+    this->_Num_size -= 1;
+    return temp;
+  }
+  NumberWithUnits &NumberWithUnits::operator--()
+  {
+    this->_Num_size -= 1;
+    return *this;
+  }
 }

@@ -7,6 +7,7 @@
 #include <unordered_map>
 
 namespace ariel{
+
 class NumberWithUnits
 {
 
@@ -51,4 +52,5 @@ public:
     NumberWithUnits operator--(int);
     NumberWithUnits& operator--();
 };
+
 }
